@@ -23,7 +23,7 @@ public class UsersDAO {
     // kiểm tra email tồn tại chưa
     public boolean checkEmail(String email) {
         Connection connection = DBConnect.getConnection();
-        String sql = "SELECT * FROM user WHERE email = '" + email + "'";
+        String sql = "SELECT * FROM users WHERE user_email = '" + email + "'";
         PreparedStatement ps;
         try {
             ps = connection.prepareCall(sql);
@@ -38,18 +38,16 @@ public class UsersDAO {
         return false;
     }
 
-     // phương thức thêm tài khoản
+    // phương thức thêm tài khoản
     public boolean insertUser(Users u) {
         Connection connection = DBConnect.getConnection();
-        String sql = "INSERT INTO user VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO users VALUES(?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setLong(1, u.getUserID());
             ps.setString(2, u.getUserEmail());
-            ps.setString(3, u.getUserPassword());
-            ps.setString(4, u.getUserName());
-            ps.setString(5, u.getUserPhone());
-            ps.setString(6, u.getUserAddress());
+            ps.setString(3, u.getUserPass());
+            ps.setBoolean(4, u.isUserRole());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -57,24 +55,21 @@ public class UsersDAO {
         }
         return false;
     }
-  
- 
-    
+
+    // kiểm tra đăng nhập
     public Users login(String email, String password) {
         Connection con = DBConnect.getConnection();
-        String sql = "select * from user where email='" + email + "' and password='" + password + "'";
+        String sql = "select * from users where user_email='" + email + "' and user_pass='" + password + "'";
         PreparedStatement ps;
         try {
             ps = (PreparedStatement) con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Users u = new Users();
-                u.setUserID(rs.getLong("id"));
-                u.setUserEmail(rs.getString("email"));
-                u.setUserPassword(rs.getString("password"));
-                u.setUserName(rs.getString("name"));
-                u.setUserPhone(rs.getString("phone"));
-                u.setUserAddress(rs.getString("address"));
+                u.setUserID(rs.getLong("user_id"));
+                u.setUserEmail(rs.getString("user_email"));
+                u.setUserPass(rs.getString("user_pass"));
+                u.setUserRole(rs.getBoolean("user_role"));
                 con.close();
                 return u;
             }
@@ -83,6 +78,23 @@ public class UsersDAO {
         }
         return null;
     }
-    
+
+    public Users getUser(long userID) {
+        try {
+            Connection connection = DBConnect.getConnection();
+            String sql = "SELECT * FROM users WHERE user_id = ?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, userID);
+            ResultSet rs = ps.executeQuery();
+            Users u = new Users();
+            while (rs.next()) {
+                u.setUserEmail(rs.getString("user_email"));
+            }
+            return u;
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
 }

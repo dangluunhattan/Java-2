@@ -13,7 +13,7 @@ import model.BillDetail;
 
 /**
  *
- * @author TAN
+ * @author TUNGDUONG
  */
 public class BillDetailDAO {
 

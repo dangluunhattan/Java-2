@@ -76,47 +76,25 @@
         <strong>Lorem Ipsum is simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
      </div>  -->
 
-    <form class="form-horizontal" method="post" action="CheckOutServlet" enctype="multipart/form-data">
-        <h4>Thanh toán</h4>
-       <div class="alert alert-info fade in">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Ghi chú:</strong> Không được để trống nội dung phía dưới
-     </div>
-     <hr>
-        
-         
-        
-         
-         <div class="control-group">
-            <label class="control-label" for="inputLnam">Ghi chú-Địa chỉ: <sup>*</sup></label>
+   <form action="CheckOutServlet" method="POST">
+                        <div class="control-group">
+                            <span>Address *</span>
+                            <input type="text" name="address" style="margin-left: 4px;">
+                        </div> 	
+                        <div class="control-group">
+                            <span>Payment *</span>
+                            <select name="payment">
+                                <option value="Bank transfer"> Bank transfer</option>
+                                <option value="Live"> Live</option>
+                            </select>
+                        </div> 			
+                        <div class="control-group">
             <div class="controls">
-              <textarea class="input" id="address" name="address"></textarea>
-                <p style="color: #e74c3c;">Nhập địa chỉ  và thời gian nhận hàng</p>
-                <div class="clear"></div>
-                <div style="color: #e74c3c;" class="error" id="address_error"></div>
-            </div>
-         </div> 
-         <div class="control-group">
-            <label class="control-label" for="inputLnam">Thanh toán qua: <sup>*</sup></label>
-            <div class="controls">
-            <select name="payment">
-                    <option value="">---- Chọn cổng thanh toán -----</option>
-                    <option value="Bank transfer">Thanh toán khi nhận hàng</option>
-                    <option value="Live">Thanh toán qua Bảo Kim</option>
-                    
-            </select>
-                <div class="clear"></div>
-                <div class="error" style="color: #e74c3c;" id="payment_error"></div>
-         </div>
-         </div>        
-        
-        <div class="control-group">
-            <div class="controls">
-                <input type="submit" class="btn btn-success" value="Thanh toán" name="submit">
+                <input type="submit" class="btn btn-success" value="Thanh toán" name="submit" style="margin-left: 66px;">
                 <a href="index.jsp" class="btn btn-link">Quay lại trang chủ?</a>
             </div>
-        </div>      
-    </form>
+        </div>
+                    </form>
 </div>
 				</div>
 </div>
@@ -125,3 +103,6 @@
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>
+
+
+

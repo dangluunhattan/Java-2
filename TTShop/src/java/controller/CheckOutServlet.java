@@ -24,7 +24,7 @@ import model.Users;
 
 /**
  *
- * @author TAN
+ * @author TUNGDUONG
  */
 public class CheckOutServlet extends HttpServlet {
 

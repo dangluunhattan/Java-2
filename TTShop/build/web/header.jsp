@@ -54,7 +54,7 @@
     </form>
     <ul id="topMenu" class="nav pull-right">
 	 <li class=""><a href="index.jsp">Trang chủ</a></li>
-	 <li class=""><a href="product.jsp">Sản phẩm</a></li>
+	 <li class=""><a href="productall.jsp">Sản phẩm</a></li>
 	 <li class=""><a href="contact.jsp">Liên hệ</a></li>
 	 <li class="">
                     <%if(users==null){%>

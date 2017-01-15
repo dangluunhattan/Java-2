@@ -1,3 +1,5 @@
+
+
 <%-- 
     Document   : register
     Created on : Nov 28, 2016, 9:33:32 PM
@@ -87,70 +89,24 @@
         <strong>Lorem Ipsum is simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
      </div>  -->
         
-    <form class="form-horizontal" method="post" action="UsersServlet" >
-        <h4>Đăng ký thành viên</h4>
-       <div class="alert alert-info fade in">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Ghi chú:</strong> Không được để trống nội dung phía dưới
-     </div>
-     <hr>
-     
-        <div class="control-group">
-        <label class="control-label" for="input_email">Email: <sup>*</sup></label>
-        <div class="controls">
-          <input type="text" class="input" id="email" name="email" value="">
-          <span id="user-result"></span>
-          <div class="clear"></div>
-          <div class="error" style="color: #e74c3c;" id="email_error"></div>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label" for="inputPassword1">Mật khẩu: <sup>*</sup></label>
-        <div class="controls">
-          <input type="password" class="input" id="password" name="password">
-          <div class="clear"></div>
-          <div class="error" style="color: #e74c3c;" id="password_error"></div>
-        </div>
-      </div>
-<!--      <div class="control-group">
-        <label class="control-label" for="inputPassword1">Nhập lại mật khẩu: <sup>*</sup></label>
-        <div class="controls">
-          <input type="password" class="input" id="re_password" name="re_password">
-          <div class="clear"></div>
-          <div class="error" style="color: #e74c3c;" id="re_password_error"></div>
-        </div>
-      </div>-->
-         <div class="control-group">
-        <label class="control-label" for="input_name">Họ tên: <sup>*</sup></label>
-        <div class="controls">
-          <input type="text" class="input" id="name" name="name" value="">
-          <span id="user-result"></span>
-          <div class="clear"></div>
-          <div class="error" style="color: #e74c3c;" id="email_error"></div>
-        </div>
-      </div>
-         <div class="control-group">
-            <label class="control-label" for="inputLnam">Số điện thoại: <sup>*</sup></label>
-            <div class="controls">
-              <input type="text" class="input" id="phone" name="phone" value="">
-              <div class="clear"></div>
-              <div class="error" style="color: #e74c3c;" id="phone_error"></div>
-            </div>
-         </div>
-         <div class="control-group">
-            <label class="control-label" for="inputLnam">Địa chỉ: <sup>*</sup></label>
-            <div class="controls">
-              <textarea class="input" id="address" name="address"></textarea>
-              <div class="clear"></div>
-              <div class="error" style="color: #e74c3c;" id="address_error"></div>
-            </div>
-         </div>     
-    <div class="control-group">
-            <div class="controls">
-                <input type="hidden" value="insert" name="command" >
-                 <input type="submit" value="Đăng ký" class="btn btn-success"> 
-            </div>
-        </div>      
+    <form action="UsersServlet" method="POST">
+                        <div>
+                            <span class="word">Username *</span>
+                            <input type="text" name="email" id="email">
+                            <span id="user-result"></span>
+                        </div> 	
+                        <div> 
+                            <span class="word">Password *</span>
+                            <input type="password" name="pass">
+                            <span></span>
+                        </div>			
+                         <div class="control-group">
+                            <div class="controls">
+                                <input type="hidden" value="insert" name="command" >
+                                 <input type="submit" value="Đăng ký" class="btn btn-success"  style="margin-left: 71px"> 
+                            </div>
+                        </div>
+                    </form>   
     </form>
 </div>
 				</div>

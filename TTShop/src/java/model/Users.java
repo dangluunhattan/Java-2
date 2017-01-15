@@ -7,26 +7,23 @@ package model;
 
 /**
  *
- * @author TAN
+ * @author
  */
 public class Users {
+
     private long userID;
     private String userEmail;
-    private String userPassword;
-    private String userName;
-    private String userPhone;
-    private String userAddress;
+    private String userPass;
+    private boolean userRole;
 
     public Users() {
     }
 
-    public Users(long userID, String userEmail, String userPassword, String userName, String userPhone, String userAddress) {
+    public Users(long userID, String userEmail, String userPass, boolean userRole) {
         this.userID = userID;
         this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userName = userName;
-        this.userPhone = userPhone;
-        this.userAddress = userAddress;
+        this.userPass = userPass;
+        this.userRole = userRole;
     }
 
     public long getUserID() {
@@ -45,38 +42,20 @@ public class Users {
         this.userEmail = userEmail;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getUserPass() {
+        return userPass;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
     }
 
-    public String getUserName() {
-        return userName;
+    public boolean isUserRole() {
+        return userRole;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserRole(boolean userRole) {
+        this.userRole = userRole;
     }
 
-    public String getUserPhone() {
-        return userPhone;
-    }
-
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone;
-    }
-
-    public String getUserAddress() {
-        return userAddress;
-    }
-
-    public void setUserAddress(String userAddress) {
-        this.userAddress = userAddress;
-    }
-    
-    
-    
 }

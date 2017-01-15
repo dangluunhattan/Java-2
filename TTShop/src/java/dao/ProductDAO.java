@@ -78,10 +78,46 @@ public class ProductDAO {
         return list;
     }
     
+    public ArrayList<Product> getListProductByRate2() throws SQLException {
+        Connection connection = DBConnect.getConnection();
+        String sql = "SELECT * FROM product ORDER BY view ASC LIMIT 0, 3";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Product> list = new ArrayList<>();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getLong("id"));
+            product.setProductName(rs.getString("name"));
+            product.setProductImage(rs.getString("image_link"));
+            product.setProductPrice(rs.getDouble("price"));
+            product.setProductDescription(rs.getString("description"));
+            list.add(product);
+        }
+        return list;
+    }
+    
+    public ArrayList<Product> getListProductAll() throws SQLException {
+        Connection connection = DBConnect.getConnection();
+        String sql = "SELECT * FROM product";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Product> list = new ArrayList<>();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getLong("id"));
+            product.setProductName(rs.getString("name"));
+            product.setProductImage(rs.getString("image_link"));
+            product.setProductPrice(rs.getDouble("price"));
+            product.setProductDescription(rs.getString("description"));
+            list.add(product);
+        }
+        return list;
+    }
+    
     
     public static void main(String[] args) throws SQLException {        
         ProductDAO dao = new ProductDAO();      
-        for(Product p : dao.getListProductByRate()){       
+        for(Product p : dao.getListProductByRate2()){       
             System.out.println(p.getProductID() + " - "+p.getProductName());    
         }    
     }

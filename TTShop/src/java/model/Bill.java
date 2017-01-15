@@ -9,15 +9,16 @@ import java.sql.Timestamp;
 
 /**
  *
- * @author TAN
+ * @author TUNGDUONG
  */
 public class Bill {
+
     private long billID;
     private long userID;
     private double total;
     private String payment;
     private String address;
-    private Timestamp date; 
+    private Timestamp date;
 
     public Bill() {
     }
@@ -78,7 +79,5 @@ public class Bill {
     public void setDate(Timestamp date) {
         this.date = date;
     }
-    
-    
-    
+
 }

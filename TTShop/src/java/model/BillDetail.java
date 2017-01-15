@@ -7,24 +7,25 @@ package model;
 
 /**
  *
- * @author TAN
+ * @author TUNGDUONG
  */
 public class BillDetail {
+
     private long billDetailID;
     private long billID;
     private long productID;
     private double price;
-    private int qty;
+    private int quantity;
 
     public BillDetail() {
     }
 
-    public BillDetail(long billDetailID, long billID, long productID, double price, int qty) {
+    public BillDetail(long billDetailID, long billID, long productID, double price, int quantity) {
         this.billDetailID = billDetailID;
         this.billID = billID;
         this.productID = productID;
         this.price = price;
-        this.qty = qty;
+        this.quantity = quantity;
     }
 
     public long getBillDetailID() {
@@ -59,14 +60,12 @@ public class BillDetail {
         this.price = price;
     }
 
-    public int getQty() {
-        return qty;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
-    
-    
-    
+
 }

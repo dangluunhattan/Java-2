@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2017 at 02:15 PM
+-- Generation Time: Jan 15, 2017 at 02:55 PM
 -- Server version: 5.6.31
 -- PHP Version: 5.5.38
 
@@ -79,6 +79,15 @@ CREATE TABLE IF NOT EXISTS `bill` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`bill_id`, `user_id`, `total`, `payment`, `address`, `date`) VALUES
+(1484489165698, 1484487623107, 21500000, 'Bank transfer', 'aÃ?Ã¡Ã?', '2017-01-15 14:06:06'),
+(1484489302658, 1484487623107, 21500000, 'Bank transfer', 'Cáº©mnh', '2017-01-15 14:08:23'),
+(1484489620695, 1484487623107, 21500000, 'Bank transfer', '', '2017-01-15 14:13:41');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +101,13 @@ CREATE TABLE IF NOT EXISTS `bill_detail` (
   `price` double NOT NULL,
   `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `bill_detail`
+--
+
+INSERT INTO `bill_detail` (`bill_detail_id`, `bill_id`, `product_id`, `price`, `qty`) VALUES
+(0, 1484489165698, 16, 16500000, 1);
 
 -- --------------------------------------------------------
 
@@ -362,25 +378,25 @@ INSERT INTO `support` (`id`, `name`, `yahoo`, `gmail`, `skype`, `phone`, `sort_o
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(255) NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(128) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` bigint(20) NOT NULL,
+  `user_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_pass` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_role` bit(1) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`, `name`, `phone`, `address`) VALUES
-(19, 'dangluunhattan@gmail.com', '123456', '', '', ''),
-(21, 'dangluunhattan2@gmail.com', '9a9812268c5b985d76615f7b95366b22', '', '', '');
+INSERT INTO `users` (`user_id`, `user_email`, `user_pass`, `user_role`) VALUES
+(1463056081950, 'dangluunhattan@gmail.com', '123456', b'0'),
+(1484487623107, 'dangluunhattan4@gmail.com', '123456', b'0'),
+(1484488216653, 'dangluunhattan3@gmail.com', '123456', b'0'),
+(1484488371535, 'dangluunhattan2@gmail.com', '123456', b'0');
 
 -- --------------------------------------------------------
 
@@ -522,10 +538,10 @@ ALTER TABLE `support`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `users`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `video`
@@ -602,11 +618,6 @@ ALTER TABLE `slide`
 --
 ALTER TABLE `support`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `video`
 --

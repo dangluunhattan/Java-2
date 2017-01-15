@@ -1,3 +1,5 @@
+
+
 <%-- 
     Document   : login
     Created on : Nov 28, 2016, 9:37:42 PM
@@ -67,45 +69,26 @@
         <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>Lorem Ipsum is simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
      </div>  -->
-    <form class="form-horizontal" method="post" action="UsersServlet" >
-        <h4>Đăng ký thành viên</h4>
-<!--        <%if(session.getAttribute("error")!=null){%>
-       <div class="alert alert-block alert-error fade in">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Thông báo:</strong><%=session.getAttribute("error")%>
-     </div>
-       <%}%> -->
-     <hr>
-        
-        <%if(session.getAttribute("error")!=null){%>
-        <div>                                   
-            <p style="color:red"><%=session.getAttribute("error")%></p>                             
-        </div>                        
-            <%}%> 
-        <div class="control-group">
-        <label class="control-label" for="input_email">Email: <sup>*</sup></label>
-        <div class="controls">
-          <input type="text" class="input" id="email" name="email" value="">
-          <span id="user-result"></span>
-          <div class="clear"></div>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label" for="inputPassword1">Mật khẩu: <sup>*</sup></label>
-        <div class="controls">
-          <input type="password" class="input" id="password" name="password">
-          <div class="clear"></div>
-        </div>
-      </div>
-  
-    <div class="control-group">
-            <div class="controls">
+    <form action="UsersServlet" method="POST">
+                        <%if(request.getParameter("error")!=null){%>
+                        <div>
+                            <p style="color:red"><%=request.getParameter("error")%></p>
+                        </div> 
+                        <%}%>
+                        <div class="controls">
+                            <span>Username *</span>
+                            <input type="text" name="email">
+                        </div> 	
+                         <div class="controls">
+                            <span class="word">Password *</span>
+                            <input type="password" name="pass">
+                        </div>	
+                        <div class="controls">
                 <input type="hidden" value="login" name="command" >
-                 <input type="submit" value="Đăng nhập" class="btn btn-success"> 
+                 <input type="submit" value="Đăng nhập" class="btn btn-success" style="margin-left: 71px"> 
                  <a class="btn btn-link" href="register.jsp">Đăng ký?</a>
             </div>
-        </div>      
-    </form>
+                    </form>
 </div>
    </div>
 </div>
@@ -114,3 +97,4 @@
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>
+
