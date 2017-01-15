@@ -10,15 +10,17 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author TUNGDUONG
+ * @author TAN
  */
 public class DBConnect {
     
     public static Connection getConnection(){
         Connection conn = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver"); 
             conn = DriverManager.getConnection("jdbc:mysql://localhost/TTShop", "root", "root");
+//              conn = DriverManager.getConnection("jdbc:mysql://node41066-ttshop.jelastic.skali.net/TTShop", "root", "OPKalg17344");
+         
         } catch (Exception e) {
             e.printStackTrace();
         }
